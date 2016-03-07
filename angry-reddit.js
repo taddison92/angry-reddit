@@ -12,11 +12,12 @@ if (Meteor.isClient) {
      '$meteor',
     function ($scope, $meteor) {
 
-      $scope.subreddits = $meteor.collection(Subreddits);
+      $scope.subreddits = $meteor.collection( function() {
+        return Subreddits.find({}, { sort: { anger: -1 } })
+      });
 
       $scope.addSub = function (newSub) {
         $scope.subreddits.push( newSub );
-        $scope.subreddits.sort(function(a, b){return a.anger-b.anger});
       };
 
   }]);

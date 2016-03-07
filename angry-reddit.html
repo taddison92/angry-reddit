@@ -21,7 +21,7 @@
         /r/<input ng-model="newSub.name" type="text"
                   name="text" placeholder="subreddit"/>
         <input ng-model="newSub.anger" type="text"
-               name="text" placeholder="anger"/>
+               name="number" placeholder="anger"/>
         <input type="submit" id="submit" value="Submit"/>
     </form>
 
@@ -29,7 +29,7 @@
       Angriest SubReddits
     </h2>
     <ul>
-      <li ng-repeat="sub in subreddits | orderBy:'-anger'">
+      <li ng-repeat="sub in subreddits">
         {{ sub.name }}
         {{ sub.anger }}
       </li>
