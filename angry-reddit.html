@@ -1,0 +1,39 @@
+<head>
+  <title>Angry Reddit</title>
+</head>
+
+<body>
+  <div class="container"
+       ng-app="angry-reddit"
+       ng-controller="AngerCtrl">
+
+    <header>
+      <h1>
+        Angry Reddit
+      </h1>
+    </header>
+
+    <h2>
+      How Angry Is Your Favorite Sub Today?
+    </h2>
+
+    <form class="new-sub" ng-submit="addSub(newSub); newSub={};">
+        /r/<input ng-model="newSub.name" type="text"
+                  name="text" placeholder="subreddit"/>
+        <input ng-model="newSub.anger" type="text"
+               name="text" placeholder="anger"/>
+        <input type="submit" id="submit" value="Submit"/>
+    </form>
+
+    <h2>
+      Angriest SubReddits
+    </h2>
+    <ul>
+      <li ng-repeat="sub in subreddits | orderBy:'-anger'">
+        {{ sub.name }}
+        {{ sub.anger }}
+      </li>
+    </ul>
+
+  </div>
+</body>
