@@ -17,7 +17,12 @@
       How Angry Is Your Favorite Sub Today?
     </h2>
 
-    <form class="new-sub" ng-submit="addSub(newSub); newSub={};">
+    <div>
+      {{ error }}
+    </div>
+
+    <form class="new-sub"
+          ng-submit="addSub(newSub); newSub={}; error='';">
         /r/<input ng-model="newSub.name" type="text"
                   name="text" placeholder="subreddit"/>
         <input ng-model="newSub.anger" type="text"
