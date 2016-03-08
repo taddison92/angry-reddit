@@ -17,7 +17,18 @@ if (Meteor.isClient) {
       });
 
       $scope.addSub = function (newSub) {
-        $scope.subreddits.push( newSub );
+        Meteor.http.get(
+          'https://www.reddit.com/r/'+newSub.name+'/comments.json',
+          function (error, result) {
+            if (error) {
+              $scope.error = error;
+            } else {
+              comments = result.data.data.children.map(function (whole_comment) {
+                return whole_comment.data.body;
+              }).join(' ');
+            }
+          }
+        );
       };
 
   }]);
