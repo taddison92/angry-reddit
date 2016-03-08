@@ -13,32 +13,39 @@
       </h1>
     </header>
 
-    <h2>
-      How Angry Is Your Favorite Sub Today?
-    </h2>
+    <div style="padding-left: 20px;">
+      <h2>
+        How Angry Is Your Favorite Sub Today?
+      </h2>
 
-    <div>
-      {{ error }}
+      <form class="new-sub"
+            ng-submit="addSub(name); name=''; error='';">
+          /r/<input ng-model="name" type="text"
+                    name="text" placeholder="subreddit"/>
+          <input type="submit" id="submit" value="Submit"/>
+      </form>
+
+      <h2>
+        Angriest SubReddits
+      </h2>
+      <ul>
+        <li ng-repeat="sub in subreddits">
+          {{ sub.name }}
+          {{ sub.anger }}
+        </li>
+      </ul>
     </div>
 
-    <form class="new-sub"
-          ng-submit="addSub(newSub); newSub={}; error='';">
-        /r/<input ng-model="newSub.name" type="text"
-                  name="text" placeholder="subreddit"/>
-        <input ng-model="newSub.anger" type="text"
-               name="number" placeholder="anger"/>
-        <input type="submit" id="submit" value="Submit"/>
-    </form>
-
-    <h2>
-      Angriest SubReddits
-    </h2>
-    <ul>
-      <li ng-repeat="sub in subreddits">
-        {{ sub.name }}
-        {{ sub.anger }}
-      </li>
-    </ul>
+    <footer>
+      <div>
+        By Thomas Addison
+      </div>
+      <div>
+        <a href="www.alchemyapi.com">
+          Text Analysis by AlchemyAPI
+        </a>
+      </div>
+    </footer>
 
   </div>
 </body>

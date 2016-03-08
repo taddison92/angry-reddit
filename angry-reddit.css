@@ -80,7 +80,8 @@ ul {
 li {
   position: relative;
   list-style: none;
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-bottom: #eee solid 1px;
 }
 
@@ -103,6 +104,14 @@ li.private {
 
 header .hide-completed {
   float: right;
+}
+
+footer {
+  background: #d2edf4;
+  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+  padding: 20px 15px 15px 15px;
+  position: absolute;
+  bottom:0;
 }
 
 .toggle-private {
