@@ -50,7 +50,9 @@ if (Meteor.isServer) {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
 
-      Subreddits.insert({
+      Subreddits.upsert({
+        name: subName
+      }, {
         name: subName,
         anger: Math.floor(response.data.docEmotions.anger * 100)
       });
