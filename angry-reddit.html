@@ -32,6 +32,7 @@
         <li ng-repeat="sub in subreddits">
           {{ sub.name }}
           {{ sub.anger }}
+          <button ng-click="addSub(sub.name)" type="button"> Resubmit</button>
         </li>
       </ul>
     </div>
